@@ -100,7 +100,8 @@ def train_model(args, model, criterion, optimizer, scheduler, num_epochs=25):
                 # zero the parameter gradients
                 optimizer.zero_grad()
 
-                
+                # forward
+                outputs = model(inputs)
                 _, preds = torch.max(outputs.data, 1)
                 loss = criterion(outputs, labels)
  
